@@ -1,17 +1,26 @@
-<!-- Page Heading -->
-<h2 class="h3 mb-2 text-gray-800">
+<h2 class="h3 font-weight-bold text-primary">
+    <!-- flecha de regresar menú -->
+    <a href="<?= base_url('caja') ?>"><i class="fas fa-arrow-circle-left"></i></a>
+    <!-- TITULO DESDE EL CONTROLADOR -->
     <?= $titulo ?>
 </h2>
+
+<!-- SUBMENÚ -->
 <p class="mb-4">
-    <?= $ayudaDescripcion ?>
+    <a href="<?= base_url('/unidades/nuevo') ?>" class="btn btn-info"> <i class="fas fa-plus-circle"></i> Agregar
+        <?= $singular ?>
+    </a>
+    <a href="<?= base_url('/unidades/eliminados') ?>" class="btn btn-danger"> <i class="fas fa-trash"></i>
+        Eliminados</a>
 </p>
 
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
+<!-- CONTENIDO PRINCIPAL CARD -->
+<div class="card shadow mt-3">
     <div class="card-header py-3">
-        <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
-        <a href="<?= base_url('/unidades/nuevo') ?>" class="btn btn-info">Agregar <?= $singular ?></a>
-        <a href="<?= base_url('/unidades/eliminados') ?>" class="btn btn-danger">Eliminados</a>
+        <!-- DESCRIPCIÓN DESDE EL CONTROLADOR -->
+        <h6 class="m-0">
+            <?= $ayudaDescripcion ?>
+        </h6>
     </div>
 
     <div class="card-body">
@@ -20,7 +29,6 @@
                 <thead>
                     <tr>
                         <th>Nombre</th>
-                        <th>Abreviación</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -28,10 +36,9 @@
                     <?php foreach ($datos as $dato) { ?>
                         <tr>
                             <td>
-                                <?= $dato['nombre'] ?>
-                            </td>
-                            <td>
-                                <?= $dato['nombre_corto'] ?>
+                                <?= $dato['nombre'] ?> <b>(
+                                    <?= $dato['nombre_corto'] ?>)
+                                </b>
                             </td>
                             <td>
                                 <a href="<?= base_url('/unidades/editar') ?>" class="btn btn-warning">

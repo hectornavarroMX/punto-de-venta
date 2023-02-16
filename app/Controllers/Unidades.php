@@ -15,18 +15,43 @@ class Unidades extends Controller
 
     public function index($activo = 1)
     {
+        //consulta db
         $unidades = $this->unidades->where('activo', $activo)->findAll();
-        // titulo de la página
+
         $data = [
-            'titulo' => 'Unidades', 
+            //query resultado de la consulta
             'datos' => $unidades,
-            'ayudaDescripcion' => 'Aquí puedes administrar las unidades en las que se venden los productos.',
-            'singular' => 'unidad'
+
+            //Información para la pagina Vista
+            'titulo' => 'Unidades de medida',
+            'singular' => 'unidad',
+            'ayudaDescripcion' => 'Administrar las unidades en las que se venden los productos.'
         ];
 
-        echo view ('header');
-        echo view ('unidades/unidades', $data);
-        echo view ('footer');
+        //vistas
+        echo view('header');
+        echo view('unidades/unidades', $data);
+        echo view('footer');
+    }
+
+    public function nuevo()
+    {
+
+        $data = [
+            //query resultado de la consulta
+            'datos' => $unidades,
+
+            //Información para la pagina Vista
+            'titulo' => 'Agregar unidad',
+            'singular' => 'unidad',
+            'ayudaDescripcion' => 'Dar de alta de nuevas unidades de medida para especificar ¿Cómo se venden? diferentes productos.'
+
+        ];
+
+        //vistas
+        echo view('header');
+        echo view('unidades/nuevo', $data);
+        echo view('footer');
     }
 
 }

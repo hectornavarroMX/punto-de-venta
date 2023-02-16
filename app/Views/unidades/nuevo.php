@@ -1,50 +1,51 @@
-<!-- Page Heading -->
-<h2 class="h3 mb-2 text-gray-800">
+<h2 class="h3 font-weight-bold text-primary">
+    <!-- flecha de regresar menú -->
+    <a href="<?= base_url('/unidades') ?>"><i class="fas fa-arrow-circle-left"></i></a>
+    <!-- TITULO DESDE EL CONTROLADOR -->
     <?= $titulo ?>
 </h2>
-<p class="mb-4">
-    <?= $ayudaDescripcion ?>
-</p>
 
-<!-- DataTales Example -->
-<div class="card shadow mb-4">
+
+<!-- CONTENIDO PRINCIPAL CARD -->
+<div class="card shadow mt-3">
     <div class="card-header py-3">
-        <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
-        <a href="<?= base_url('/unidades/nuevo') ?>" class="btn btn-info">Agregar <?= $singular ?></a>
-        <a href="<?= base_url('/unidades/eliminados') ?>" class="btn btn-danger">Eliminados</a>
+        <!-- DESCRIPCIÓN DESDE EL CONTROLADOR -->
+        <h6 class="m-0">
+            <?= $ayudaDescripcion ?>
+        </h6>
     </div>
 
     <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Abreviación</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($datos as $dato) { ?>
-                        <tr>
-                            <td>
-                                <?= $dato['nombre'] ?>
-                            </td>
-                            <td>
-                                <?= $dato['nombre_corto'] ?>
-                            </td>
-                            <td>
-                                <a href="<?= base_url('/unidades/editar') ?>" class="btn btn-warning">
-                                    <i class="fas fa-pencil-alt"></i>
-                                </a>
-                                <a href="<?= base_url('/unidades/eliminar') ?>" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
-        </div>
+
+        <form action="<?= base_url('/unidades/insertar') ?>" method="post" autocomplete="off">
+
+            <div class="row">
+                <div class="form-group col-xs-12 col-sm-6">
+                    <label for="">Nombre</label>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder=""
+                        aria-describedby="helpId">
+                    <small id="helpId" class="text-muted">Por ejemplo: Kilogramo</small>
+                </div>
+                <div class="form-group col-xs-12 col-sm-6">
+                    <label for="">Abreviación</label>
+                    <input type="text" class="form-control" name="nombre_corto" id="nombre_corto"
+                        aria-describedby="helpId" placeholder="">
+                    <small id="helpId" class="form-text text-muted">Por ejemplo: kg</small>
+                </div>
+            </div>
+
+
+            <div class="float-right px-3">
+                <a href="<?= base_url('/unidades') ?>" class="btn btn-secondary mt-3">
+                    <i class="fas fa-arrow-circle-left    "></i>
+                    Regresar
+                </a>
+                <button type="submit" class="btn btn-success mt-3"><i class="fas fa-save"></i> Guardar</button>
+            </div>
+
+        </form>
+
+
+
     </div>
 </div>
