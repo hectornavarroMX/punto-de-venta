@@ -424,29 +424,29 @@
           </li>
           <li class="nav-item menu-open">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-table"></i>
+              <i class="nav-icon fas fa-shopping-basket"></i>
               <p>
-                Tables
+              Productos
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../tables/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
+                <a href="<?= base_url('/productos') ?>" class="nav-link">
+                  <i class="fas fa-shopping-bag nav-icon"></i>
+                  <p>Catálogo de Productos</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/data.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
+                <a href="<?= base_url('/categorias') ?>" class="nav-link">
+                  <i class="fas fa-warehouse nav-icon"></i>
+                  <p>Categorías</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
+                <a href="<?= base_url('/unidades') ?>" class="nav-link">
+                  <i class="fas fa-ruler-horizontal nav-icon active"></i>
+                  <p>Unidades de medida</p>
                 </a>
               </li>
             </ul>
