@@ -88,7 +88,6 @@ class Unidades extends BaseController
     public function actualizar()
     {
         //Consulta para actualizar
-        //                      [            ID                ]
         $this->unidades->update( $this->request->getPost('id'),
             
             //Formulario a BD
@@ -98,10 +97,20 @@ class Unidades extends BaseController
             ]
         );
 
-
-
         return redirect()->to(base_url('/unidades'));
     }
     
+    public function eliminar($id)
+    {
+        //Consulta para actualizar
+        $this->unidades->update( $id,
+            
+            //Modificar columna activo a 0 para ocultar
+            [
+                'activo' => 0,
+            ]
+        );
 
+        return redirect()->to(base_url('/unidades'));
+    }
 }
