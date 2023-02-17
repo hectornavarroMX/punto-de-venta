@@ -28,8 +28,8 @@
 
     <div class="card-body">
 
-        <form action="<?= base_url('/unidades/insertar') ?>" method="post" autocomplete="off">
-
+        <form action="<?= base_url('/unidades/actualizar') ?>" method="post" autocomplete="off">
+            <input type="hidden" value="<?= $datos['id'] ?>" name="id">
             <div class="row">
                 <div class="form-group col-xs-12 col-sm-6">
                     <label for="">Nombre</label>
@@ -55,7 +55,7 @@
                     <i class="fas fa-arrow-circle-left    "></i>
                     Regresar
                 </a>
-                <button type="submit" class="btn btn-success mt-3"><i class="fas fa-save"></i> Guardar</button>
+                <button type="submit" class="btn btn-success mt-3"><i class="fas fa-sync"></i> Actualizar</button>
             </div>
 
         </form>

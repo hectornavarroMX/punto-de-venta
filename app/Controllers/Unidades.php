@@ -84,12 +84,21 @@ class Unidades extends BaseController
         echo view('footer');
     }
 
+    
     public function actualizar()
     {
-        $this->unidades->save([
-            'nombre' => $this->request->getPost('nombre'),
-            'nombre_corto' => $this->request->getPost('nombre_corto'),
-        ]);
+        //Consulta para actualizar
+        //                      [            ID                ]
+        $this->unidades->update( $this->request->getPost('id'),
+            
+            //Formulario a BD
+            [
+                'nombre' => $this->request->getPost('nombre'),
+                'nombre_corto' => $this->request->getPost('nombre_corto'),
+            ]
+        );
+
+
 
         return redirect()->to(base_url('/unidades'));
     }
