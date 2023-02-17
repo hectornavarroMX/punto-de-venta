@@ -43,7 +43,8 @@
       "responsive": true,
       "lengthChange": false,
       "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      // "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+      "buttons": ["copy", "excel", "pdf", "print", "colvis"],
       language: {
         "aria": {
           "sortAscending": "Activar para ordenar la columna de manera ascendente",
@@ -57,7 +58,7 @@
         },
         "buttons": {
           "collection": "Colección",
-          "colvis": "Visibilidad",
+          "colvis": "Ver columnas",
           "colvisRestore": "Restaurar visibilidad",
           "copy": "Copiar",
           "copyKeys": "Presione ctrl o u2318 + C para copiar los datos de la tabla al portapapeles del sistema. <br \/> <br \/> Para cancelar, haga clic en este mensaje o presione escape.",
