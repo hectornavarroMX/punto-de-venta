@@ -16,11 +16,11 @@ class Unidades extends Controller
     public function index($activo = 1)
     {
         //consulta db
-        $unidades = $this->unidades->where('activo', $activo)->findAll();
+        // $unidades = $this->unidades->where('activo', $activo)->findAll();
 
         $data = [
             //query resultado de la consulta
-            'datos' => $unidades,
+            // 'datos' => $unidades,
 
             //Información para la pagina Vista
             'titulo' => 'Unidades de medida',
