@@ -3,8 +3,9 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\UnidadesModel;
+use App\Controllers\BaseController;
 
-class Unidades extends Controller
+class Unidades extends BaseController
 {
     protected $unidades;
 
@@ -16,11 +17,11 @@ class Unidades extends Controller
     public function index($activo = 1)
     {
         //consulta db
-        // $unidades = $this->unidades->where('activo', $activo)->findAll();
+        $unidades = $this->unidades->where('activo', $activo)->findAll();
 
         $data = [
             //query resultado de la consulta
-            // 'datos' => $unidades,
+            'datos' => $unidades,
 
             //Información para la pagina Vista
             'titulo' => 'Unidades de medida',
@@ -44,7 +45,7 @@ class Unidades extends Controller
             //Información para la pagina Vista
             'titulo' => 'Agregar unidad',
             'singular' => 'unidad',
-            'ayudaDescripcion' => 'Dar de alta de nuevas unidades de medida para especificar ¿Cómo se venden? diferentes productos.'
+            'ayudaDescripcion' => 'Dar de alta de nuevas unidades de medida para especificar ¿Cómo se venden? los diferentes productos.'
 
         ];
 
@@ -53,5 +54,18 @@ class Unidades extends Controller
         echo view('unidades/nuevo', $data);
         echo view('footer');
     }
+
+    public function insertar()
+    {
+        $this->unidades->save([
+            'nombre' => $this->request->getPost('nombre'),
+            'nombre_corto' => $this->request->getPost('nombre_corto'),
+        ]);
+
+        return redirect()->to(base_url('/unidades'));
+    }
+
+
+    
 
 }

@@ -5,7 +5,8 @@ class Home extends BaseController
 	public function index()
 	{
 		echo view('header');
-		echo view('unidades/unidades');
+		// echo view('unidades/unidades');
+		echo view('base');
 		echo view('footer');
 	}
 

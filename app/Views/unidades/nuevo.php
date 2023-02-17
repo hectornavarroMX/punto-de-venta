@@ -1,19 +1,30 @@
-<h2 class="h3 font-weight-bold text-primary">
-    <!-- flecha de regresar menú -->
-    <a href="<?= base_url('/unidades') ?>"><i class="fas fa-arrow-circle-left"></i></a>
-    <!-- TITULO DESDE EL CONTROLADOR -->
-    <?= $titulo ?>
-</h2>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>
+                    <?= $titulo ?>
+                </h1>
+                <h6 class="my-3">
+                    <!-- DESCRIPCIÓN DESDE EL CONTROLADOR -->
+                    <?= $ayudaDescripcion ?>
+                </h6>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="<?= base_url() ?>"><i class="fas fa-home    "></i></a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url('unidades') ?>">Unidades</a></li>
+                    <li class="breadcrumb-item active">Agregar unidad</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
 
 
 <!-- CONTENIDO PRINCIPAL CARD -->
 <div class="card shadow mt-3">
-    <div class="card-header py-3">
-        <!-- DESCRIPCIÓN DESDE EL CONTROLADOR -->
-        <h6 class="m-0">
-            <?= $ayudaDescripcion ?>
-        </h6>
-    </div>
+
 
     <div class="card-body">
 
@@ -23,7 +34,7 @@
                 <div class="form-group col-xs-12 col-sm-6">
                     <label for="">Nombre</label>
                     <input type="text" name="nombre" id="nombre" class="form-control" placeholder=""
-                        aria-describedby="helpId">
+                        aria-describedby="helpId" autofocus>
                     <small id="helpId" class="text-muted">Por ejemplo: Kilogramo</small>
                 </div>
                 <div class="form-group col-xs-12 col-sm-6">
