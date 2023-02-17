@@ -10,12 +10,11 @@
                     <?= $ayudaDescripcion ?>
                 </h6>
             </div>
-            <!-- breadcrumbs -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?= base_url() ?>"><i class="fas fa-home"></i></a></li>
                     <li class="breadcrumb-item"><a href="<?= base_url('unidades') ?>">Unidades</a></li>
-                    <li class="breadcrumb-item active">Agregar</li>
+                    <li class="breadcrumb-item active">Editar</li>
                 </ol>
             </div>
         </div>
@@ -34,14 +33,18 @@
             <div class="row">
                 <div class="form-group col-xs-12 col-sm-6">
                     <label for="">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder=""
-                        aria-describedby="helpId" autofocus>
+                    <input type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId" autofocus
+                    value="<?= $datos['nombre'] ?>"
+                    >
+
                     <small id="helpId" class="text-muted">Por ejemplo: Kilogramo</small>
                 </div>
                 <div class="form-group col-xs-12 col-sm-6">
                     <label for="">Abreviación</label>
-                    <input type="text" class="form-control" name="nombre_corto" id="nombre_corto"
-                        aria-describedby="helpId" placeholder="">
+                    <input type="text" class="form-control" name="nombre_corto" id="nombre_corto" aria-describedby="helpId" placeholder=""
+                    value="<?= $datos['nombre_corto'] ?>"
+                    >
+
                     <small id="helpId" class="form-text text-muted">Por ejemplo: kg</small>
                 </div>
             </div>

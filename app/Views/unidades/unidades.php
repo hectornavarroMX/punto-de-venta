@@ -12,8 +12,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="<?= base_url() ?>"><i class="fas fa-home    "></i></a></li>
-                    <li class="breadcrumb-item active">Unidades</a></li>
+                    <li class="breadcrumb-item"><a href="<?= base_url() ?>"><i class="fas fa-home"></i></a></li>
+                    <li class="breadcrumb-item active"><?= $Plural ?></li>
                 </ol>
             </div>
         </div>
@@ -65,7 +65,7 @@
                                 <?php echo ($dato['nombre']. ' (<b>'. $dato['nombre_corto'] .'</b>)'); ?>
                             </td>
                             <td>
-                                <a href="<?= base_url('/unidades/editar') ?>" class="btn btn-warning">
+                                <a href="<?= base_url('/unidades/editar/'.$dato['id']) ?>" class="btn btn-warning">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
                                 <a href="<?= base_url('/unidades/eliminar') ?>" class="btn btn-danger">

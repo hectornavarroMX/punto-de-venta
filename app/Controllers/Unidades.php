@@ -25,8 +25,7 @@ class Unidades extends BaseController
 
             //Información para la pagina Vista
             'titulo' => 'Unidades de medida',
-            'singular' => 'unidad',
-            'ayudaDescripcion' => 'Administrar las unidades en las que se venden los productos.'
+            'ayudaDescripcion' => 'Administrar las unidades en las que se venden los productos.',
         ];
 
         //vistas
@@ -44,8 +43,7 @@ class Unidades extends BaseController
 
             //Información para la pagina Vista
             'titulo' => 'Agregar unidad',
-            'singular' => 'unidad',
-            'ayudaDescripcion' => 'Dar de alta de nuevas unidades de medida para especificar ¿Cómo se venden? los diferentes productos.'
+            'ayudaDescripcion' => 'Dar de alta de nuevas unidades de medida para especificar ¿Cómo se venden? los diferentes productos..',
 
         ];
 
@@ -65,7 +63,36 @@ class Unidades extends BaseController
         return redirect()->to(base_url('/unidades'));
     }
 
+    //función para mostrar la vista editar
+    public function editar($id)
+    {
+        //consulta db
+        $unidad = $this->unidades->where('id', $id)->first();
 
+        $data = [
+            //query resultado de la consulta
+            'datos' => $unidad,
+
+            //Información para la pagina Vista
+            'titulo' => 'Editar una unidad de medida',
+            'ayudaDescripcion' => 'Modifica unidades de medida existentes.',
+        ];
+
+        //vistas
+        echo view('header');
+        echo view('unidades/editar', $data);
+        echo view('footer');
+    }
+
+    public function actualizar()
+    {
+        $this->unidades->save([
+            'nombre' => $this->request->getPost('nombre'),
+            'nombre_corto' => $this->request->getPost('nombre_corto'),
+        ]);
+
+        return redirect()->to(base_url('/unidades'));
+    }
     
 
 }
