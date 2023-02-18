@@ -26,12 +26,8 @@
         <div class="col-sm-6">
             <!-- SUBMENÚ -->
             <p class="mb-4">
-                <a href="<?= base_url('/unidades/nuevo') ?>" class="btn btn-success"> <i class="fas fa-plus-circle"></i>
-                    Agregar
-                    <?= $singular ?>
-                </a>
-                <a href="<?= base_url('/unidades/eliminados/') ?>" class="btn btn-danger"> <i class="fas fa-trash"></i>
-                    Ver Eliminados</a>
+                <a href="<?= base_url('/unidades') ?>" class="btn btn-success"> <i class="fas fa-chevron-circle-left"></i>
+                    Regresar</a>
             </p>
 
         </div>
@@ -65,11 +61,8 @@
                                 <?php echo ($dato['nombre']. ' (<b>'. $dato['nombre_corto'] .'</b>)'); ?>
                             </td>
                             <td>
-                                <a href="<?= base_url('/unidades/editar/'.$dato['id']) ?>" class="btn btn-info">
-                                    <i class="fas fa-pencil-alt"></i>
-                                </a>
-                                <a href="<?= base_url('/unidades/eliminar/'.$dato['id']) ?>" class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
+                                <a href="<?= base_url('/unidades/reingresar/'.$dato['id']) ?>" class="btn btn-success">
+                                    <i class="fas fa-trash-restore"></i>
                                 </a>
                             </td>
                         </tr>

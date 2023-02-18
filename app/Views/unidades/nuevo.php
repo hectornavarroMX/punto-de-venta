@@ -22,6 +22,20 @@
     </div><!-- /.container-fluid -->
 </section>
 
+<div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <!-- SUBMENÚ -->
+            <p class="mb-4">
+                <a href="<?= base_url('/unidades') ?>" class="btn btn-secondary"> <i class="fas fa-chevron-circle-left"></i>
+                    Regresar</a>
+            </p>
+
+        </div>
+    </div>
+</div><!-- /.container-fluid -->
+
+
 
 <!-- CONTENIDO PRINCIPAL CARD -->
 <div class="card shadow mt-3">
@@ -48,11 +62,7 @@
 
 
             <div class="float-right px-3">
-                <a href="<?= base_url('/unidades') ?>" class="btn btn-secondary mt-3">
-                    <i class="fas fa-arrow-circle-left    "></i>
-                    Regresar
-                </a>
-                <button type="submit" class="btn btn-success mt-3"><i class="fas fa-save"></i> Guardar</button>
+                <button type="submit" class="btn btn-lg btn-success mt-3"><i class="fas fa-save"></i> Guardar</button>
             </div>
 
         </form>

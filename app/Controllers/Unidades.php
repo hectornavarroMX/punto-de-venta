@@ -100,9 +100,29 @@ class Unidades extends BaseController
         return redirect()->to(base_url('/unidades'));
     }
     
+    public function eliminados($activo = 0)
+    {
+        //consulta db
+        $unidades = $this->unidades->where('activo', $activo)->findAll();
+
+        $data = [
+            //query resultado de la consulta
+            'datos' => $unidades,
+
+            //Información para la pagina Vista
+            'titulo' => 'Unidades de medida eliminadas',
+            'ayudaDescripcion' => 'Unidades que no se utilizan. Si lo deseas, puedes ingresarlas nuevamente al sistema',
+        ];
+
+        //vistas
+        echo view('header');
+        echo view('unidades/eliminados', $data);
+        echo view('footer');
+    }
+
     public function eliminar($id)
     {
-        //Consulta para actualizar
+        //Consulta para eliminar
         $this->unidades->update( $id,
             
             //Modificar columna activo a 0 para ocultar
@@ -112,5 +132,19 @@ class Unidades extends BaseController
         );
 
         return redirect()->to(base_url('/unidades'));
+    }
+
+    public function reingresar($id)
+    {
+        //Consulta para reingresar
+        $this->unidades->update( $id,
+            
+            //Modificar columna activo a 1 para mostrar
+            [
+                'activo' => 1,
+            ]
+        );
+
+        return redirect()->to(base_url('/unidades/eliminados'));
     }
 }
