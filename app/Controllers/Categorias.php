@@ -1,35 +1,35 @@
 <?php
 namespace App\Controllers;
 
-use App\Models\UnidadesModel;
+use App\Models\CategoriasModel;
 use App\Controllers\BaseController;
 
-class Unidades extends BaseController
+class Categorias extends BaseController
 {
-    protected $unidades;
+    protected $categorias;
 
     public function __construct()
     {
-        $this->unidades = new UnidadesModel();
+        $this->categorias = new CategoriasModel();
     }
 
     public function index($activo = 1)
     {
         //consulta db
-        $unidades = $this->unidades->where('activo', $activo)->findAll();
+        $categorias = $this->categorias->where('activo', $activo)->findAll();
 
         $data = [
             //query resultado de la consulta
-            'datos' => $unidades,
+            'datos' => $categorias,
 
             //Información para la pagina Vista
-            'titulo' => 'Unidades de medida',
-            'ayudaDescripcion' => 'Administrar las unidades en las que se venden los productos.',
+            'titulo' => 'Departamentos',
+            'ayudaDescripcion' => 'Administrar las categorias en las que se venden los productos.',
         ];
 
         //vistas
         echo view('header');
-        echo view('unidades/unidades', $data);
+        echo view('categorias/categorias', $data);
         echo view('footer');
     }
 
@@ -38,48 +38,47 @@ class Unidades extends BaseController
 
         $data = [
             //query resultado de la consulta
-            'datos' => $unidades,
+            'datos' => $categorias,
 
             //Información para la pagina Vista
-            'titulo' => 'Agregar unidad',
-            'ayudaDescripcion' => 'Dar de alta de nuevas unidades de medida para especificar ¿Cómo se venden? los diferentes productos.',
+            'titulo' => 'Agregar departamento',
+            'ayudaDescripcion' => 'Dar de alta de nuevas categorias o departamentos para especificar ¿Cómo se venden? los diferentes productos.',
 
         ];
 
         //vistas
         echo view('header');
-        echo view('unidades/nuevo', $data);
+        echo view('categorias/nuevo', $data);
         echo view('footer');
     }
 
     public function insertar()
     {
-        $this->unidades->save([
+        $this->categorias->save([
             'nombre' => $this->request->getPost('nombre'),
-            'nombre_corto' => $this->request->getPost('nombre_corto'),
         ]);
 
-        return redirect()->to(base_url('/unidades'));
+        return redirect()->to(base_url('/categorias'));
     }
 
     //función para mostrar la vista editar
     public function editar($id)
     {
         //consulta db
-        $unidad = $this->unidades->where('id', $id)->first();
+        $categoria = $this->categorias->where('id', $id)->first();
 
         $data = [
             //query resultado de la consulta
-            'datos' => $unidad,
+            'datos' => $categoria,
 
             //Información para la pagina Vista
-            'titulo' => 'Editar una unidad de medida',
-            'ayudaDescripcion' => 'Modifica unidades de medida existentes.',
+            'titulo' => 'Editar una categoria de medida',
+            'ayudaDescripcion' => 'Modifica categorias de medida existentes.',
         ];
 
         //vistas
         echo view('header');
-        echo view('unidades/editar', $data);
+        echo view('categorias/editar', $data);
         echo view('footer');
     }
 
@@ -87,43 +86,42 @@ class Unidades extends BaseController
     public function actualizar()
     {
         //Consulta para actualizar
-        $this->unidades->update( $this->request->getPost('id'),
+        $this->categorias->update( $this->request->getPost('id'),
             
             //Formulario a BD
             [
                 'nombre' => $this->request->getPost('nombre'),
-                'nombre_corto' => $this->request->getPost('nombre_corto'),
             ]
         );
 
-        return redirect()->to(base_url('/unidades'));
-        // return redirect()->to(base_url('/unidades/editar/'.$this->request->getPost('id')));
+        return redirect()->to(base_url('/categorias'));
+        // return redirect()->to(base_url('/categorias/editar/'.$this->request->getPost('id')));
     }
     
     public function eliminados($activo = 0)
     {
         //consulta db
-        $unidades = $this->unidades->where('activo', $activo)->findAll();
+        $categorias = $this->categorias->where('activo', $activo)->findAll();
 
         $data = [
             //query resultado de la consulta
-            'datos' => $unidades,
+            'datos' => $categorias,
 
             //Información para la pagina Vista
-            'titulo' => 'Unidades de medida eliminadas',
-            'ayudaDescripcion' => 'Unidades que no se utilizan. Si lo deseas, puedes ingresarlas nuevamente al sistema',
+            'titulo' => 'Categorias de medida eliminadas',
+            'ayudaDescripcion' => 'Categorias que no se utilizan. Si lo deseas, puedes ingresarlas nuevamente al sistema',
         ];
 
         //vistas
         echo view('header');
-        echo view('unidades/eliminados', $data);
+        echo view('categorias/eliminados', $data);
         echo view('footer');
     }
 
     public function eliminar($id)
     {
         //Consulta para eliminar
-        $this->unidades->update( $id,
+        $this->categorias->update( $id,
             
             //Modificar columna activo a 0 para ocultar
             [
@@ -131,13 +129,13 @@ class Unidades extends BaseController
             ]
         );
 
-        return redirect()->to(base_url('/unidades'));
+        return redirect()->to(base_url('/categorias'));
     }
 
     public function reingresar($id)
     {
         //Consulta para reingresar
-        $this->unidades->update( $id,
+        $this->categorias->update( $id,
             
             //Modificar columna activo a 1 para mostrar
             [
@@ -145,6 +143,6 @@ class Unidades extends BaseController
             ]
         );
 
-        return redirect()->to(base_url('/unidades/eliminados'));
+        return redirect()->to(base_url('/categorias/eliminados'));
     }
 }

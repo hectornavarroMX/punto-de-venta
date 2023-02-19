@@ -13,7 +13,7 @@
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="<?= base_url() ?>"><i class="fas fa-home"></i></a></li>
-                    <li class="breadcrumb-item active"><a href="<?= base_url('unidades') ?>">Unidades</a></li>
+                    <li class="breadcrumb-item active"><a href="<?= base_url('categorias') ?>">Unidades</a></li>
                 </ol>
             </div>
         </div>
@@ -26,8 +26,12 @@
         <div class="col-sm-6">
             <!-- SUBMENÚ -->
             <p class="mb-4">
-                <a href="<?= base_url('/unidades') ?>" class="btn btn-outline-warning"> <i class="fas fa-chevron-circle-left"></i>
-                    Regresar</a>
+                <a href="<?= base_url('/categorias/nuevo') ?>" class="btn btn-success"> <i class="fas fa-plus-circle"></i>
+                    Agregar
+                    <?= $singular ?>
+                </a>
+                <a href="<?= base_url('/categorias/eliminados/') ?>" class="btn btn-danger"> <i class="fas fa-trash"></i>
+                    Ver Eliminados</a>
             </p>
 
         </div>
@@ -58,11 +62,14 @@
                     <?php foreach ($datos as $dato) { ?>
                         <tr>
                             <td>
-                                <?php echo ($dato['nombre']. ' (<b>'. $dato['nombre_corto'] .'</b>)'); ?>
+                                <?php echo ($dato['nombre']); ?>
                             </td>
                             <td>
-                                <a href="<?= base_url('/unidades/reingresar/'.$dato['id']) ?>" class="btn btn-success">
-                                    <i class="fas fa-trash-restore"></i>
+                                <a href="<?= base_url('/categorias/editar/'.$dato['id']) ?>" class="btn btn-info">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                                <a href="<?= base_url('/categorias/eliminar/'.$dato['id']) ?>" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
                                 </a>
                             </td>
                         </tr>

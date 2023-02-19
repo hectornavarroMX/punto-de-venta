@@ -440,7 +440,7 @@
               <li class="nav-item">
                 <a href="<?= base_url('/categorias') ?>" class="nav-link">
                   <i class="fas fa-warehouse nav-icon"></i>
-                  <p>Categorías</p>
+                  <p>Departamentos</p>
                 </a>
               </li>
               <li class="nav-item">
